@@ -12,39 +12,41 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 40px 20px;
+            padding: 20px 10px;
             min-height: 100vh;
+            color: #333;
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
         h1 {
             text-align: center;
             color: white;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
         
         .section-title {
-            text-align: center;
+            text-align: left;
             color: white;
-            margin: 40px 0 20px;
-            font-size: 1.8em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin: 30px 0 15px 5px;
+            font-size: 1.4em;
+            border-left: 4px solid #fff;
+            padding-left: 10px;
         }
         
         .table-wrapper {
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             overflow: hidden;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
         
         table {
@@ -53,353 +55,250 @@
         }
         
         thead {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #5a6fd6;
             color: white;
         }
         
         th {
-            padding: 18px 12px;
+            padding: 15px;
             text-align: left;
             font-weight: 600;
-            font-size: 1em;
-            letter-spacing: 0.5px;
-        }
-        
-        tbody tr {
-            transition: all 0.3s ease;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        tbody tr:hover {
-            background: linear-gradient(90deg, #f8f9ff 0%, #fff 100%);
-            transform: scale(1.005);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
-        }
-        
-        tbody tr:last-child {
-            border-bottom: none;
         }
         
         td {
-            padding: 16px 12px;
-            color: #333;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
             vertical-align: top;
         }
-        
-        .day-column {
-            font-weight: 600;
-            color: #667eea;
-            font-size: 1.05em;
-            min-width: 120px;
-        }
-        
-        .activity-name {
-            font-weight: 600;
-            color: #667eea;
-            font-size: 1.05em;
-        }
-        
-        .price {
+
+        /* Liens Tarifs */
+        .price-link {
             color: #27ae60;
-            font-weight: 600;
-            font-size: 1.05em;
-        }
-
-        .price a {
-            color: inherit;
             text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .price a:hover {
-            text-decoration: underline;
-            opacity: 0.8;
+            display: block;
+            font-weight: bold;
         }
         
+        .price-link small {
+            display: block;
+            color: #666;
+            font-weight: normal;
+            margin-top: 4px;
+        }
+
+        /* Boutons de navigation */
         .links {
             display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px;
         }
         
         .link-btn {
-            padding: 6px 12px;
+            flex: 1;
+            padding: 10px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-            font-size: 0.85em;
-            white-space: nowrap;
-        }
-        
-        .waze-btn {
-            background: #33ccff;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.9em;
             color: white;
         }
         
-        .waze-btn:hover {
-            background: #2bb3e0;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(51, 204, 255, 0.4);
-        }
-        
-        .maps-btn {
-            background: #ea4335;
-            color: white;
-        }
-        
-        .maps-btn:hover {
-            background: #d33426;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4);
-        }
-        
-        @media (max-width: 1200px) {
-            th, td {
-                padding: 12px 8px;
-                font-size: 0.9em;
-            }
-        }
-        
+        .waze-btn { background: #33ccff; }
+        .maps-btn { background: #ea4335; }
+
+        /* --- OPTIMISATION MOBILE (CARTES) --- */
         @media (max-width: 768px) {
-            body {
-                padding: 20px 10px;
+            table, thead, tbody, th, td, tr {
+                display: block;
             }
             
-            h1 {
-                font-size: 1.8em;
+            thead { display: none; } /* On cache l'en-tête sur mobile */
+            
+            tr {
+                margin-bottom: 15px;
+                border-bottom: 2px solid #667eea;
+                padding: 10px;
             }
             
-            .section-title {
-                font-size: 1.4em;
-            }
-            
-            th, td {
-                padding: 10px 6px;
-                font-size: 0.85em;
-            }
-            
-            .links {
+            td {
+                border-bottom: none;
+                padding: 8px 5px;
+                display: flex;
                 flex-direction: column;
-                gap: 5px;
             }
             
-            .link-btn {
-                padding: 5px 10px;
-                font-size: 0.8em;
+            /* Ajout des labels pour le planning */
+            td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: #667eea;
+                text-transform: uppercase;
+                font-size: 0.75em;
+                margin-bottom: 2px;
+            }
+
+            .day-column {
+                font-size: 1.2em;
+                background: #f8f9ff;
+                border-radius: 8px;
+                padding: 10px !important;
+                margin-bottom: 10px;
+            }
+
+            .activity-name {
+                font-size: 1.1em;
+                color: #764ba2;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎯 Planning Complet du Week-end</h1>
+        <h1>🎯 Mon Week-end</h1>
         
-        <h2 class="section-title">📅 Planning des Journées</h2>
+        <h2 class="section-title">📅 Planning</h2>
         <div class="table-wrapper">
             <table>
                 <thead>
                     <tr>
                         <th>Jour</th>
-                        <th>☀️ Matin</th>
-                        <th>🍽️ Repas Midi</th>
-                        <th>🌊 Après-midi</th>
-                        <th>🌙 Soir</th>
-                        <th>🍴 Repas soir</th>
+                        <th>Matin</th>
+                        <th>Midi</th>
+                        <th>Après-midi</th>
+                        <th>Soir</th>
+                        <th>Repas</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="day-column">Vendredi 7 août</td>
-                        <td>🚗 Préparation & départ</td>
-                        <td>🥪 Chez nous / sur la route</td>
-                        <td>⛺ Arrivée vers 14h : montage des tentes, tables, pétanque & Mölkky</td>
-                        <td>🎈 Montgolfière pour les motivés<br>(⚠️ risque de couscous tiède 😅)</td>
-                        <td>🍛 Couscous</td>
+                        <td class="day-column" data-label="Date">Vendredi 7 août</td>
+                        <td data-label="☀️ Matin">🚗 Préparation & départ</td>
+                        <td data-label="🍽️ Midi">🥪 Sur la route</td>
+                        <td data-label="🌊 Après-midi">⛺ Arrivée 14h, tentes & pétanque</td>
+                        <td data-label="🎈 Soir">Montgolfière (option)</td>
+                        <td data-label="🍴 Repas">🍛 Couscous</td>
                     </tr>
                     <tr>
-                        <td class="day-column">Samedi 8 août</td>
-                        <td>🚣 Kayak + préparation de la salle</td>
-                        <td>🍔 Burgers</td>
-                        <td>💦 WAM PARK / Water Jump (14h–19h, 2h sur place) + prépa salle</td>
-                        <td>🕺💃 Soirée à la salle des fêtes</td>
-                        <td>🍽️ Traiteur</td>
+                        <td class="day-column" data-label="Date">Samedi 8 août</td>
+                        <td data-label="☀️ Matin">🚣 Kayak + prépa salle</td>
+                        <td data-label="🍽️ Midi">🍔 Burgers</td>
+                        <td data-label="🌊 Après-midi">💦 WAM PARK (14h–19h)</td>
+                        <td data-label="🕺 Soir">Soirée à la salle</td>
+                        <td data-label="🍴 Repas">🍽️ Traiteur</td>
                     </tr>
                     <tr>
-                        <td class="day-column">Dimanche 9 août</td>
-                        <td>😴 Récupération + 🥾 randonnée (2h30) et/ou 🚣 kayak (session rattrapage !)</td>
-                        <td>🍕 Pizzas</td>
-                        <td>🎯 Jeux : Mölkky, pétanque & cie</td>
-                        <td>🛋️ Chill & repos</td>
-                        <td>🍻 Buvette de Samoreau</td>
+                        <td class="day-column" data-label="Date">Dimanche 9 août</td>
+                        <td data-label="☀️ Matin">😴 Récup' ou 🥾 Rando</td>
+                        <td data-label="🍽️ Midi">🍕 Pizzas</td>
+                        <td data-label="🌊 Après-midi">🎯 Mölkky & pétanque</td>
+                        <td data-label="🛋️ Soir">Chill & repos</td>
+                        <td data-label="🍴 Repas">🍻 Buvette Samoreau</td>
                     </tr>
                     <tr>
-                        <td class="day-column">Lundi 10 août</td>
-                        <td>⛺ Pliage des tentes<br>Départ avant 12h<br>🎯 Mölkky, pétanque & cuisine chili</td>
-                        <td>🌶️ Chili con carne au parc</td>
-                        <td>🌳 Accrobranche + 🚗 retour</td>
-                        <td>🏁 Retour</td>
-                        <td>🏠 Chez nous</td>
+                        <td class="day-column" data-label="Date">Lundi 10 août</td>
+                        <td data-label="☀️ Matin">⛺ Pliage tentes (<12h)</td>
+                        <td data-label="🍽️ Midi">🌶️ Chili au parc</td>
+                        <td data-label="🌊 Après-midi">🌳 Accrobranche</td>
+                        <td data-label="🏁 Soir">Retour</td>
+                        <td data-label="🍴 Repas">🏠 Maison</td>
                     </tr>
                 </tbody>
             </table>
         </div>
         
-        <h2 class="section-title">💰 Activités & Tarifs</h2>
+        <h2 class="section-title">💰 Activités & Résas</h2>
         <div class="table-wrapper">
             <table>
-                <thead>
-                    <tr>
-                        <th>Activité</th>
-                        <th>Montant</th>
-                        <th>Adresse Waze</th>
-                        <th>Adresse Maps</th>
-                    </tr>
-                </thead>
                 <tbody>
                     <tr>
-                        <td class="activity-name">🏕️ Camping</td>
-                        <td class="price">
-                            <a href="https://www.camping-samoreau.fr/tarifs-et-reservations/" target="_blank">
-                                83,20 €<br>
-                                <small style="color: #666;">4 jours (vendredi PM au lundi AM)<br>Couple + voiture + tente + élec : 20,80 €/nuit</small>
+                        <td class="activity-name">🏕️ Camping de Samoreau</td>
+                        <td>
+                            <a href="https://www.camping-samoreau.fr/tarifs-et-reservations/" class="price-link" target="_blank">
+                                83,20 € (Couple / 4 j)
+                                <small>Voir tarifs détaillés</small>
                             </a>
-                        </td>
-                        <td>
                             <div class="links">
-                                <a href="https://www.waze.com/live-map/directions?to=ll.48.30777%2C2.77417" class="link-btn waze-btn" target="_blank">📍 Waze</a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="links">
-                                <a href="https://www.google.com/maps/dir/?api=1&destination=48.30777,2.77417" class="link-btn maps-btn" target="_blank">🗺️ Maps</a>
+                                <a href="https://www.waze.com/live-map/directions?to=ll.48.30777%2C2.77417" class="link-btn waze-btn" target="_blank">Waze</a>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=48.30777,2.77417" class="link-btn maps-btn" target="_blank">Maps</a>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="activity-name">🎈 Montgolfière</td>
-                        <td class="price">
-                            <a href="https://www.franceballoons.com/produit/billets-de-vol-en-montgolfiere-a-fontainebleau-ile-de-france/" target="_blank">
-                                240 € (1 pers) / 460 € (duo)<br>
-                                <small style="color: #666;">Selon conditions météo</small>
+                        <td>
+                            <a href="https://www.franceballoons.com/produit/billets-de-vol-en-montgolfiere-a-fontainebleau-ile-de-france/" class="price-link" target="_blank">
+                                240 € (solo) / 460 € (duo)
+                                <small>Réservations en ligne</small>
                             </a>
-                        </td>
-                        <td>
                             <div class="links">
-                                <a href="https://waze.com/ul/hd1kc4pxrk" class="link-btn waze-btn" target="_blank">📍 Waze</a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="links">
-                                <a href="https://maps.app.goo.gl/gGgv9ahQRBTLveCG6" class="link-btn maps-btn" target="_blank">🗺️ Maps</a>
+                                <a href="https://waze.com/ul/hd1kc4pxrk" class="link-btn waze-btn" target="_blank">Waze</a>
+                                <a href="https://maps.app.goo.gl/gGgv9ahQRBTLveCG6" class="link-btn maps-btn" target="_blank">Maps</a>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td class="activity-name">🛶 Kayak</td>
-                        <td class="price">
-                            <a href="https://www.kayakomat.com/fr/location/6662ecfdb58eac3eaeecbe87" target="_blank">
+                        <td class="activity-name">🛶 Kayakomat</td>
+                        <td>
+                            <a href="https://www.kayakomat.com/fr/location/6662ecfdb58eac3eaeecbe87" class="price-link" target="_blank">
                                 29 € (solo) / 39 € (duo)
+                                <small>Louer en ligne</small>
                             </a>
-                        </td>
-                        <td>
                             <div class="links">
-                                <a href="https://www.waze.com/live-map/directions?to=ll.48.41125%2C2.90333" class="link-btn waze-btn" target="_blank">📍 Waze</a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="links">
-                                <a href="https://www.google.com/maps/dir/?api=1&destination=48.41125,2.90333" class="link-btn maps-btn" target="_blank">🗺️ Maps</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="activity-name">🌲 Accrobranche</td>
-                        <td class="price">
-                            <a href="https://www.jumpingforest.com/nos-parcs/saint-germain-laval/reserver-saint-germain-laval/" target="_blank">
-                                21 €<br>
-                                <small style="color: #666;">Optionnel mini-golf : 14 €</small>
-                            </a>
-                        </td>
-                        <td>
-                            <div class="links">
-                                <a href="https://www.waze.com/live-map/directions?to=ll.48.44111%2C2.71389" class="link-btn waze-btn" target="_blank">📍 Waze</a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="links">
-                                <a href="https://www.google.com/maps/dir/?api=1&destination=48.44111,2.71389" class="link-btn maps-btn" target="_blank">🗺️ Maps</a>
+                                <a href="https://www.waze.com/live-map/directions?to=ll.48.41125%2C2.90333" class="link-btn waze-btn" target="_blank">Waze</a>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=48.41125,2.90333" class="link-btn maps-btn" target="_blank">Maps</a>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="activity-name">💦 WAM PARK / Water Jump</td>
-                        <td class="price">
-                            <a href="https://wampark.qweekle.com/shop/wampark-fontainebleau-lagrandeparoisse/packs-multi-activites/pack/pack-vert-1?lang=fr" target="_blank">
-                                25 €<br>
-                                <small style="color: #666;">1H WAM PARK + 1H Water Jump</small>
+                        <td>
+                            <a href="https://wampark.qweekle.com/shop/wampark-fontainebleau-lagrandeparoisse/packs-multi-activites/pack/pack-vert-1?lang=fr" class="price-link" target="_blank">
+                                25 € (Pack Vert)
+                                <small>1h WAM + 1h Water Jump</small>
                             </a>
-                        </td>
-                        <td>
                             <div class="links">
-                                <a href="https://www.waze.com/live-map/directions?to=ll.48.61833%2C2.41528" class="link-btn waze-btn" target="_blank">📍 Waze</a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="links">
-                                <a href="https://www.google.com/maps/dir/?api=1&destination=48.61833,2.41528" class="link-btn maps-btn" target="_blank">🗺️ Maps</a>
+                                <a href="https://www.waze.com/live-map/directions?to=ll.48.61833%2C2.41528" class="link-btn waze-btn" target="_blank">Waze</a>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=48.61833,2.41528" class="link-btn maps-btn" target="_blank">Maps</a>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td class="activity-name">🌳 Parc (repas chili con carne)</td>
-                        <td class="price">Gratuit</td>
+                        <td class="activity-name">🌲 Jumping Forest</td>
                         <td>
+                            <a href="https://www.jumpingforest.com/nos-parcs/saint-germain-laval/reserver-saint-germain-laval/" class="price-link" target="_blank">
+                                21 €
+                                <small>Option mini-golf : 14 €</small>
+                            </a>
                             <div class="links">
-                                <a href="https://www.waze.com/live-map/directions?to=ll.48.43722%2C2.73444" class="link-btn waze-btn" target="_blank">📍 Waze</a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="links">
-                                <a href="https://www.google.com/maps/dir/?api=1&destination=48.43722,2.73444" class="link-btn maps-btn" target="_blank">🗺️ Maps</a>
+                                <a href="https://www.waze.com/live-map/directions?to=ll.48.44111%2C2.71389" class="link-btn waze-btn" target="_blank">Waze</a>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=48.44111,2.71389" class="link-btn maps-btn" target="_blank">Maps</a>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="activity-name">🍔 Buvette Samoreau</td>
-                        <td class="price">
-                            <a href="https://www.labuvettesamoreau.com/#la-carte" target="_blank">
-                                ~15 €<br>
-                                <small style="color: #666;">Burger / Plat du jour</small>
+                        <td>
+                            <a href="https://www.labuvettesamoreau.com/#la-carte" class="price-link" target="_blank">
+                                ~15 €
+                                <small>Voir la carte du moment</small>
                             </a>
-                        </td>
-                        <td>
                             <div class="links">
-                                <a href="https://www.waze.com/live-map/directions?to=ll.48.43111%2C2.75389" class="link-btn waze-btn" target="_blank">📍 Waze</a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="links">
-                                <a href="https://www.google.com/maps/dir/?api=1&destination=48.43111,2.75389" class="link-btn maps-btn" target="_blank">🗺️ Maps</a>
+                                <a href="https://www.waze.com/live-map/directions?to=ll.48.43111%2C2.75389" class="link-btn waze-btn" target="_blank">Waze</a>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=48.43111,2.75389" class="link-btn maps-btn" target="_blank">Maps</a>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td class="activity-name">🥾 Randonnée</td>
-                        <td class="price">
-                            <a href="https://www.visorando.com/randonnee-foret-de-fontainebleau-en-passant-par-la/" target="_blank">
+                        <td class="activity-name">🥾 Randonnée Fontainebleau</td>
+                        <td>
+                            <a href="https://www.visorando.com/randonnee-foret-de-fontainebleau-en-passant-par-la/" class="price-link" target="_blank">
                                 Gratuit
+                                <small>Voir l'itinéraire Visorando</small>
                             </a>
-                        </td>
-                        <td>
                             <div class="links">
-                                <a href="https://www.waze.com/live-map/directions?to=ll.48.43806%2C2.71583" class="link-btn waze-btn" target="_blank">📍 Waze</a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="links">
-                                <a href="https://www.google.com/maps/dir/?api=1&destination=48.43806,2.71583" class="link-btn maps-btn" target="_blank">🗺️ Maps</a>
+                                <a href="https://www.waze.com/live-map/directions?to=ll.48.43806%2C2.71583" class="link-btn waze-btn" target="_blank">Waze</a>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=48.43806,2.71583" class="link-btn maps-btn" target="_blank">Maps</a>
                             </div>
                         </td>
                     </tr>
@@ -408,5 +307,4 @@
         </div>
     </div>
 </body>
-
 </html>
