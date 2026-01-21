@@ -19,7 +19,6 @@
             color: #333;
         }
 
-        /* --- AJOUT BOUTON ET IMAGE JEROME --- */
         .jerome-container {
             text-align: center;
             margin-bottom: 20px;
@@ -43,8 +42,8 @@
         }
 
         #img-jerome {
-            display: none; /* Caché par défaut */
-            width: 33.33vw; /* Prend 1/3 de l'écran */
+            display: none;
+            width: 33.33vw;
             margin: 20px auto;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -54,10 +53,9 @@
 
         @media (max-width: 768px) {
             #img-jerome {
-                width: 80vw; /* Plus large sur mobile pour la visibilité */
+                width: 80vw;
             }
         }
-        /* ----------------------------------- */
         
         .container {
             max-width: 1200px;
@@ -111,7 +109,6 @@
             vertical-align: top;
         }
 
-        /* Liens Tarifs */
         .price-link {
             color: #27ae60;
             text-decoration: none;
@@ -126,7 +123,6 @@
             margin-top: 4px;
         }
 
-        /* Boutons de navigation */
         .links {
             display: flex;
             gap: 10px;
@@ -147,13 +143,12 @@
         .waze-btn { background: #33ccff; }
         .maps-btn { background: #ea4335; }
 
-        /* --- OPTIMISATION MOBILE (CARTES) --- */
         @media (max-width: 768px) {
             table, thead, tbody, th, td, tr {
                 display: block;
             }
             
-            thead { display: none; } /* On cache l'en-tête sur mobile */
+            thead { display: none; }
             
             tr {
                 margin-bottom: 15px;
@@ -168,7 +163,6 @@
                 flex-direction: column;
             }
             
-            /* Ajout des labels pour le planning */
             td::before {
                 content: attr(data-label);
                 font-weight: bold;
@@ -255,10 +249,18 @@
         <h2 class="section-title">💰 Activités & Résas</h2>
         <div class="table-wrapper">
             <table>
+                <thead>
+                    <tr>
+                        <th>Activité</th>
+                        <th>Réservation</th>
+                        <th>Tarifs & Navigation</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
-                        <td class="activity-name">🏕️ Camping de Samoreau</td>
-                        <td>
+                        <td class="activity-name" data-label="🎯 Activité">🏕️ Camping de Samoreau</td>
+                        <td data-label="📋 Réservation">Réservation nécessaire, voir avec moi :D (8H-16H en semaine)</td>
+                        <td data-label="💰 Infos">
                             <a href="https://www.camping-samoreau.fr/tarifs-et-reservations/" class="price-link" target="_blank">
                                 83,20 € (Couple / 4 j)
                                 <small>Voir tarifs détaillés</small>
@@ -270,8 +272,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="activity-name">🎈 Montgolfière</td>
-                        <td>
+                        <td class="activity-name" data-label="🎯 Activité">🎈 Montgolfière</td>
+                        <td data-label="📋 Réservation">À vous de réserver quand vous voulez<br><a href="https://www.franceballoons.com/produit/billets-de-vol-en-montgolfiere-a-fontainebleau-ile-de-france/" target="_blank" style="color: #667eea; font-weight: bold;">👉 Lien de réservation</a></td>
+                        <td data-label="💰 Infos">
                             <a href="https://www.franceballoons.com/produit/billets-de-vol-en-montgolfiere-a-fontainebleau-ile-de-france/" class="price-link" target="_blank">
                                 optionnel : 240 € (solo) / 460 € (duo)
                                 <small>Réservations en ligne</small>
@@ -283,8 +286,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="activity-name">🛶 Kayakomat - Canoë Kayak</td>
-                        <td>
+                        <td class="activity-name" data-label="🎯 Activité">🛶 Kayakomat - Canoë Kayak</td>
+                        <td data-label="📋 Réservation">Réservation propre à chacun<br><a href="https://www.kayakomat.com/fr/location/6662ecfdb58eac3eaeecbe87" target="_blank" style="color: #667eea; font-weight: bold;">👉 Lien de réservation</a><br><small style="color: #e74c3c;">⚠️ Inaccessible car trop tôt dans la saison</small></td>
+                        <td data-label="💰 Infos">
+
                             <a href="https://www.kayakomat.com/fr/location/6662ecfdb58eac3eaeecbe87" class="price-link" target="_blank">
                                 29 € (solo) / 39 € (duo)
                                 <small>Louer en ligne, à partir de mai-juin</small>
@@ -296,8 +301,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="activity-name">💦 Wam Park / Water Jump</td>
-                        <td>
+                        <td class="activity-name" data-label="🎯 Activité">💦 Wam Park / Water Jump</td>
+                          <td data-label="📋 Réservation">Réservation propre à chacun<br><a href="https://wampark.qweekle.com/shop/wampark-fontainebleau-lagrandeparoisse/packs-multi-activites/pack/pack-vert-1?lang=fr" target="_blank" style="color: #667eea; font-weight: bold;">👉 Lien de réservation</a><br><small style="color: #e74c3c;">⚠️ Inaccessible car trop tôt dans la saison</small></td>
+                        <td data-label="💰 Infos">
+
                             <a href="https://wampark.qweekle.com/shop/wampark-fontainebleau-lagrandeparoisse/packs-multi-activites/pack/pack-vert-1?lang=fr" class="price-link" target="_blank">
                                 25 € (Pack Vert)
                                 <small>1h parcours sportif "ninja" + 1h Water Jump</small>
@@ -309,8 +316,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="activity-name">🌲 Mini-golf</td>
-                        <td>
+                        <td class="activity-name" data-label="🎯 Activité">🌲 Mini-golf</td>
+                        <td data-label="📋 Réservation">Réservable sur place ou <a href="https://tinyurl.com/s4pxaswx" target="_blank" style="color: #667eea; font-weight: bold;">en ligne ici</a><br><small>(haute saison, le prix ne varie pas)</small></td>
+                        <td data-label="💰 Infos">
                             <a href="https://www.jumpingforest.com/nos-parcs/saint-germain-laval/reserver-saint-germain-laval/" class="price-link" target="_blank">
                                 <small>Réserver : 14 €</small>
                             </a>
@@ -321,8 +329,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="activity-name">🍔 Buvette Samoreau</td>
-                        <td>
+                        <td class="activity-name" data-label="🎯 Activité">🍔 Buvette Samoreau</td>
+                        <td data-label="📋 Réservation">Pas de réservation nécessaire 🙊</td>
+                        <td data-label="💰 Infos">
                             <a href="https://www.labuvettesamoreau.com/#la-carte" class="price-link" target="_blank">
                                 ~15 € Burger / repas du jour
                                 <small>Voir la carte du moment</small>
@@ -334,8 +343,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="activity-name">🥾 Randonnée Fontainebleau</td>
-                        <td>
+                        <td class="activity-name" data-label="🎯 Activité">🥾 Randonnée Fontainebleau</td>
+                        <td data-label="📋 Réservation">Pas de réservation nécessaire 🙊</td>
+                        <td data-label="💰 Infos">
                             <a href="https://www.visorando.com/randonnee-autour-des-trois-pignons/" class="price-link" target="_blank">
                                  "Autour des Trois Pignons" avec Cul de Chien pour les enfants 🐶​ ​🏰​
                                 <small>Voir l'itinéraire Visorando</small>
@@ -346,9 +356,10 @@
                             </div>
                         </td>
                     </tr>
-                     <tr>
-                        <td class="activity-name">🌲 Parc avant accro branche (pour manger le chili con carne)</td>
-                        <td>
+                    <tr>
+                        <td class="activity-name" data-label="🎯 Activité">🌲 Parc avant accro branche (pour manger le chili con carne)</td>
+                        <td data-label="📋 Réservation">Pas de réservation nécessaire</td>
+                        <td data-label="💰 Infos">
                             <a href="https://www.jumpingforest.com/nos-parcs/saint-germain-laval/reserver-saint-germain-laval/" class="price-link" target="_blank">
                                
                                 <small></small>
@@ -376,5 +387,3 @@
     </script>
 </body>
 </html>
-
-
