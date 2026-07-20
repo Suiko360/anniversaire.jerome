@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!-- saved from url=(0047)https://suiko360.github.io/anniversaire.jerome/ -->
 <html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -143,6 +144,91 @@
         .waze-btn { background: #33ccff; }
         .maps-btn { background: #ea4335; }
 
+        tr.enfant-row td {
+            font-family: 'Comic Sans MS', 'Marker Felt', cursive;
+            font-style: italic;
+            background: #fff8f0;
+            color: #b5651d;
+        }
+
+        tr.enfant-row .day-column {
+            font-family: 'Comic Sans MS', 'Marker Felt', cursive;
+            background: #ffe8d6;
+            color: #b5651d;
+        }
+
+        .activity-toggle {
+            cursor: pointer;
+            color: #667eea;
+            font-weight: bold;
+            text-decoration: underline dotted;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .activity-toggle .chevron {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .activity-toggle.open .chevron {
+            transform: rotate(180deg);
+        }
+
+        tr.ideas-row td {
+            padding: 0;
+            border-bottom: none;
+        }
+
+        .ideas-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: #f8f9ff;
+        }
+
+        .ideas-panel.open {
+            max-height: 2000px;
+            transition: max-height 0.6s ease;
+        }
+
+        .ideas-panel-inner {
+            padding: 15px 20px;
+        }
+
+        .ideas-panel-inner p.reminder {
+            font-style: italic;
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+
+        .idea-item {
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .idea-item:last-child {
+            border-bottom: none;
+        }
+
+        .idea-item strong {
+            color: #5a6fd6;
+        }
+
+        .idea-item ul {
+            margin: 6px 0 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            tr.enfant-row td, tr.enfant-row .day-column {
+                display: flex;
+            }
+            tr.ideas-row { display: table-row; }
+            tr.ideas-row td { display: block !important; }
+        }
+
         @media (max-width: 768px) {
             table, thead, tbody, th, td, tr {
                 display: block;
@@ -211,36 +297,183 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="day-column" data-label="Date">Vendredi 7 août</td>
+                        <td class="day-column" data-label="Date">🧑‍🤝‍🧑 Vendredi 7 août</td>
                         <td data-label="☀️ Matin">🚗 Préparation &amp; départ</td>
                         <td data-label="🍽️ Midi">🥪 Chez nous / sur la route</td>
                         <td data-label="🌊 Après-midi">⛺ Arrivée vers 14h : montage des tentes, tables, pétanque &amp; Mölkky</td>
                         <td data-label="🎈 Soir">🎈 Montgolfière pour les motivés (⚠️ risque de couscous tiède 😅)</td>
                         <td data-label="🍴 Repas">🍛 Couscous</td>
                     </tr>
+                    <tr class="enfant-row">
+                        <td class="day-column" data-label="Date">👶 Vendredi 7 août (enfants)</td>
+                        <td data-label="☀️ Matin">—</td>
+                        <td data-label="🍽️ Midi">—</td>
+                        <td data-label="🌊 Après-midi">
+                            <span class="activity-toggle" onclick="toggleIdeas(this)">
+                                👶 Voir idée activité (encadrant tourne toutes les 30 minutes) <span class="chevron">▾</span>
+                            </span>
+                        </td>
+                        <td data-label="🎈 Soir">—</td>
+                        <td data-label="🍴 Repas">—</td>
+                    </tr>
+                    <tr class="ideas-row">
+                        <td colspan="6">
+                            <div class="ideas-panel">
+                                <div class="ideas-panel-inner">
+                                    <p class="reminder">⚠️ Demander d'abord aux enfants si ce jeu n'a pas déjà été fait précédemment avec un autre encadrant ! xD</p>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 1 — Le nid aux trésors :</strong> faire un joli nid (de la taille d'un ballon de foot) où déposer les trésors trouvés, puis chacun cherche :
+                                        <ul>
+                                            <li>Un caillou en forme de cœur, de nez ou d'animal</li>
+                                            <li>Une feuille la plus grande possible — ça devient vite une compétition</li>
+                                            <li>Un bâton en forme de baguette magique</li>
+                                            <li>Une pomme de pin géante ou minuscule</li>
+                                            <li>Un objet tout rond (galet, gland, bille perdue...)</li>
+                                            <li>Quelque chose qui pique (mais pas dangereux)</li>
+                                            <li>Une plume</li>
+                                            <li>Un truc qui sent bon (fleur, herbe froissée, écorce)</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 2 — Tour de prénoms :</strong> en cercle avec un ballon, chacun dit son prénom + un truc qu'il aime. Celui qui répète un truc déjà dit a perdu !
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 3 — Chasse aux couleurs :</strong> trouver un objet naturel pour chaque couleur de l'arc-en-ciel.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 4 — 1, 2, 3 Soleil version nature :</strong> dans la clairière du camping, un enfant se retourne, les autres avancent sans bouger quand il regarde.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 5 — Le loup et les moutons :</strong> jeu de poursuite classique, un loup doit attraper les moutons avant qu'ils rejoignent la bergerie.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 6 — Statues musicales sans musique :</strong> l'animateur tape dans les mains, tout le monde danse, dès qu'il s'arrête tout le monde se fige.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 7 — Le drapeau :</strong> deux équipes, un foulard à voler dans le camp adverse sans se faire toucher.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 8 — Jacques a dit version nature :</strong> imiter des animaux ou des gestes de la forêt uniquement quand "Jacques a dit".
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 9 — Course jusqu'à l'arbre :</strong> à cloche-pied ou à reculons jusqu'à un arbre repère et retour.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 10 — Portrait chinois nature :</strong> "Si j'étais un animal / un arbre, je serais..." chacun répond et explique pourquoi.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 11 — Construction de cabane :</strong> construire un petit abri ou une cabane avec des branches trouvées au sol.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 12 — Le memory nature :</strong> poser 10 objets naturels sur une couverture, les enfants ferment les yeux, on en retire un, ils doivent deviner lequel.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 13 — Course à la pomme de pin :</strong> transporter une pomme de pin en équilibre sur une cuillère en bois sans la faire tomber.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 14 — Le béret nature :</strong> deux équipes se font face, chacun a un numéro, on appelle un numéro pour attraper l'objet au centre avant l'adversaire.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 15 — Le jeu du silence :</strong> qui reste immobile et silencieux le plus longtemps en écoutant les bruits de la forêt a gagné.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 16 — La pêche improvisée :</strong> des feuilles posées sur l'eau d'une bassine à récupérer avec un bâton, sans les faire couler.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 17 — Le parcours du combattant nature :</strong> ramper sous une corde, sauter par-dessus des bâtons, contourner un arbre.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 18 — Les familles d'insectes :</strong> chercher et observer différents insectes puis les dessiner sur un carnet.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 19 — Colin-maillard nature :</strong> les yeux bandés, guidé uniquement par la voix des copains pour retrouver un objet ou un arbre.
+                                    </div>
+
+                                    <div class="idea-item">
+                                        <strong>Idée 20 — Concours de dessin nature :</strong> le plus beau dessin fait dans la terre ou le sable avec un bâton.
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
                     <tr>
-                        <td class="day-column" data-label="Date">Samedi 8 août</td>
+                        <td class="day-column" data-label="Date">🧑‍🤝‍🧑 Samedi 8 août</td>
                         <td data-label="☀️ Matin">🚣 Kayak + prépa salle</td>
                         <td data-label="🍽️ Midi">🍖 BBQ et brochette de légume</td>
                         <td data-label="🌊 Après-midi">💦 Wam Park / Water Jump (14h–19h, 2h sur place) + prépa salle</td>
                         <td data-label="🕺 Soir">🕺💃 Soirée à la salle des fêtes avec DJ Guitou</td>
                         <td data-label="🍴 Repas">🍽️ Traiteur</td>
                     </tr>
+                    <tr class="enfant-row">
+                        <td class="day-column" data-label="Date">👶 Samedi 8 août (enfants)</td>
+                        <td data-label="☀️ Matin">Jeux entre enfants et courses en tout genre dans la salle des fêtes pendant la décoration de celle-ci</td>
+                        <td data-label="🍽️ Midi">—</td>
+                        <td data-label="🌊 Après-midi">En cours de recherche</td>
+                        <td data-label="🎈 Soir">—</td>
+                        <td data-label="🍴 Repas">—</td>
+                    </tr>
                     <tr>
-                        <td class="day-column" data-label="Date">Dimanche 9 août</td>
+                        <td class="day-column" data-label="Date">🧑‍🤝‍🧑 Dimanche 9 août</td>
                         <td data-label="☀️ Matin">😴 Récupération + 🥾 randonnée (2h30) et/ou 🚣 kayak (session rattrapage !)</td>
                         <td data-label="🍽️ Midi">🍕 Pinsa estisvales</td>
                         <td data-label="🌊 Après-midi">🎯 Jeux : Mölkky, pétanque &amp; cie</td>
                         <td data-label="🛋️ Soir">Chill &amp; repos</td>
                         <td data-label="🍴 Repas">🍻 Buvette Samoreau</td>
                     </tr>
+                    <tr class="enfant-row">
+                        <td class="day-column" data-label="Date">👶 Dimanche 9 août (enfants)</td>
+                        <td data-label="☀️ Matin">
+                            Centre Aquatique du Grand Jardin, espace enfant OK (20mn) — <strong>09:00–17:30</strong>
+                            <div class="links">
+                                <a href="https://waze.com/ul/hu0d50nmet" class="link-btn waze-btn" target="_blank">Waze</a>
+                                <a href="https://maps.app.goo.gl/UzS9RLkg1ZjvpGJw5" class="link-btn maps-btn" target="_blank">Maps</a>
+                            </div>
+                        </td>
+                        <td data-label="🍽️ Midi">—</td>
+                        <td data-label="🌊 Après-midi">
+                            UCPA Golf Bois-le-Roi ⇒ jeu d'eau ouvert jusqu'à 18h45, également et surtout sur place ⇒ baptême (ou pas) de Poney pour 15h
+                            <div class="links">
+                                <a href="https://waze.com/ul/hu09gy43vd" class="link-btn waze-btn" target="_blank">Waze</a>
+                                <a href="https://maps.app.goo.gl/fCDjtmVY2ytC7uUA7" class="link-btn maps-btn" target="_blank">Maps</a>
+                            </div>
+                        </td>
+                        <td data-label="🎈 Soir">—</td>
+                        <td data-label="🍴 Repas">—</td>
+                    </tr>
                     <tr>
-                        <td class="day-column" data-label="Date">Lundi 10 août</td>
+                        <td class="day-column" data-label="Date">🧑‍🤝‍🧑 Lundi 10 août</td>
                         <td data-label="☀️ Matin">⛺ Pliage des tentes, Départ avant 12h, 🎯 Mölkky, pétanque &amp; cuisine chili </td>
                         <td data-label="🍽️ Midi">🌶️ Chili con carne au parc</td>
                         <td data-label="🌊 Après-midi">🌳 Mini-Golf + 🚗 retour</td>
                         <td data-label="🏁 Soir">Retour</td>
                         <td data-label="🍴 Repas">🏠 Maison</td>
+                    </tr>
+                    <tr class="enfant-row">
+                        <td class="day-column" data-label="Date">👶 Lundi 10 août (enfants)</td>
+                        <td data-label="☀️ Matin">Les adultes seront probablement trop occupés au rangement pour le retour</td>
+                        <td data-label="🍽️ Midi">—</td>
+                        <td data-label="🌊 Après-midi">Mini-golf avec les grands (à partir de 3 ans)</td>
+                        <td data-label="🎈 Soir">—</td>
+                        <td data-label="🍴 Repas">—</td>
                     </tr>
                 </tbody>
             </table>
@@ -357,6 +590,19 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="activity-name" data-label="🎯 Activité">🎂 Vidou - Gâteau d'anniversaire à aller chercher 🙏</td>
+                        <td data-label="📋 Réservation">Pas de réservation nécessaire 🙊</td>
+                        <td data-label="💰 Infos">
+                            <a href="#" class="price-link" style="pointer-events: none;">
+                                Juste annoncé "commande gâteau Thomas Michaud", déjà payé
+                            </a>
+                            <div class="links">
+                                <a href="https://waze.com/ul/hu09gqj1p0" class="link-btn waze-btn" target="_blank">Waze</a>
+                                <a href="https://maps.app.goo.gl/d3skBF7fmjFNB3Yp7?g_st=ac" class="link-btn maps-btn" target="_blank">Maps</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="activity-name" data-label="🎯 Activité">🌲 Parc avant mini-golf (pour manger le chili con carne)</td>
                         <td data-label="📋 Réservation">Pas de réservation nécessaire</td>
                         <td data-label="💰 Infos">
@@ -374,73 +620,6 @@
             </table>
         </div>
 
-        <h2 class="section-title">👶 Planning "Enfant"</h2>
-        <p style="color: white; margin: -5px 0 15px 5px; font-style: italic; text-shadow: 1px 1px 3px rgba(0,0,0,0.2);">
-            Pour soulager une partie de la charge mentale des parents, reste à trouver qui gère la bleusaille ;)
-        </p>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Jour</th>
-                        <th>Activité</th>
-                        <th>Navigation</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="day-column" data-label="Date">Vendredi 7 août — Après-midi</td>
-                        <td data-label="🎯 Activité">Occupation pour montage des tentes, appropriation des lieux et rencontres avec les copains copines du week-end :D</td>
-                        <td data-label="🧭 Navigation">—</td>
-                    </tr>
-                    <tr>
-                        <td class="day-column" data-label="Date">Samedi 8 août — Matin</td>
-                        <td data-label="🎯 Activité">Jeux entre enfants et course en tout genre dans la salle des fêtes pendant la décoration de celle-ci</td>
-                        <td data-label="🧭 Navigation">—</td>
-                    </tr>
-                    <tr>
-                        <td class="day-column" data-label="Date">Samedi 8 août — Après-midi</td>
-                        <td data-label="🎯 Activité">En cours de recherche</td>
-                        <td data-label="🧭 Navigation">—</td>
-                    </tr>
-                    <tr>
-                        <td class="day-column" data-label="Date">Dimanche 9 août — Matin</td>
-                        <td data-label="🎯 Activité">
-                            Centre Aquatique du Grand Jardin, espace enfant OK (20mn)<br>
-                            <strong>09:00–17:30</strong>
-                        </td>
-                        <td data-label="🧭 Navigation">
-                            <div class="links">
-                                <a href="https://waze.com/ul/hu0d50nmet" class="link-btn waze-btn" target="_blank">Waze</a>
-                                <a href="https://maps.app.goo.gl/UzS9RLkg1ZjvpGJw5" class="link-btn maps-btn" target="_blank">Maps</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="day-column" data-label="Date">Dimanche 9 août — Après-midi</td>
-                        <td data-label="🎯 Activité">
-                            UCPA Golf Bois-le-Roi ⇒ jeu d'eau ouvert jusqu'à 18h45, également et surtout sur place ⇒ baptême (ou pas) de Poney pour 15h
-                        </td>
-                        <td data-label="🧭 Navigation">
-                            <div class="links">
-                                <a href="https://waze.com/ul/hu09gy43vd" class="link-btn waze-btn" target="_blank">Waze</a>
-                                <a href="https://maps.app.goo.gl/fCDjtmVY2ytC7uUA7" class="link-btn maps-btn" target="_blank">Maps</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="day-column" data-label="Date">Lundi 10 août — Matin</td>
-                        <td data-label="🎯 Activité">Les adultes seront probablement trop occupés au rangement pour le retour</td>
-                        <td data-label="🧭 Navigation">—</td>
-                    </tr>
-                    <tr>
-                        <td class="day-column" data-label="Date">Lundi 10 août — Après-midi</td>
-                        <td data-label="🎯 Activité">Mini-golf avec les grands (à partir de 3 ans)</td>
-                        <td data-label="🧭 Navigation">—</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
 
     <script>
@@ -451,6 +630,13 @@
             } else {
                 img.style.display = 'block';
             }
+        }
+
+        function toggleIdeas(el) {
+            const row = el.closest('tr').nextElementSibling;
+            const panel = row.querySelector('.ideas-panel');
+            panel.classList.toggle('open');
+            el.classList.toggle('open');
         }
     </script>
 
