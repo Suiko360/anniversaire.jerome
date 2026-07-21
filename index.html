@@ -77,14 +77,43 @@
             font-size: 1.4em;
             border-left: 4px solid #fff;
             padding-left: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+            transition: opacity 0.2s;
         }
-        
+
+        .section-title:hover {
+            opacity: 0.85;
+        }
+
+        .section-title .chevron {
+            display: inline-block;
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+            margin-right: 15px;
+        }
+
+        .section-title.open .chevron {
+            transform: rotate(180deg);
+        }
+
         .table-wrapper {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
             background: white;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+        .table-wrapper.open {
+            max-height: 20000px;
             margin-bottom: 30px;
+            transition: max-height 0.8s ease;
         }
         
         table {
@@ -303,8 +332,8 @@
 
         <h1>🎯 Mon Week-end à Samoreau (77210)</h1>
         
-        <h2 class="section-title">📅 Anniversaire de "Jérome" 🤣​</h2>
-        <div class="table-wrapper">
+        <h2 class="section-title" onclick="toggleSection(this)">📅 Anniversaire de "Jérome" 🤣​<span class="chevron">▾</span></h2>
+        <div class="table-wrapper" id="section-1">
             <table>
                 <thead>
                     <tr>
@@ -492,8 +521,8 @@
             </table>
         </div>
         
-        <h2 class="section-title">💰 Activités &amp; Résas</h2>
-        <div class="table-wrapper">
+        <h2 class="section-title" onclick="toggleSection(this)">💰 Activités &amp; Résas<span class="chevron">▾</span></h2>
+        <div class="table-wrapper" id="section-2">
             <table>
                 <thead>
                     <tr>
@@ -558,6 +587,16 @@
                             <div class="links">
                                 <a href="https://waze.com/ul/hu0d54n2fh" class="link-btn waze-btn" target="_blank">Waze</a>
                                 <a href="https://www.google.com/maps/dir/?api=1&amp;destination=48.61833,2.41528" class="link-btn maps-btn" target="_blank">Maps</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="activity-name" data-label="🎯 Activité">🍽️ Chercher la vaisselle et fontaine de location</td>
+                        <td data-label="📋 Réservation">Pas de réservation nécessaire 🙊</td>
+                        <td data-label="💰 Infos">
+                            <div class="links">
+                                <a href="https://waze.com/ul/hu0d527rj2" class="link-btn waze-btn" target="_blank">Waze</a>
+                                <a href="https://maps.app.goo.gl/EGeSmHV9mDSiAF2o7" class="link-btn maps-btn" target="_blank">Maps</a>
                             </div>
                         </td>
                     </tr>
@@ -671,8 +710,8 @@
             </table>
         </div>
 
-        <h2 class="section-title">🎯 Tableau des missions - Voir adresse ci-dessus</h2>
-        <div class="table-wrapper">
+        <h2 class="section-title" onclick="toggleSection(this)">🎯 Tableau des missions - Voir adresse ci-dessus<span class="chevron">▾</span></h2>
+        <div class="table-wrapper" id="section-3">
             <table>
                 <thead>
                     <tr>
@@ -718,6 +757,12 @@
             const panel = row.querySelector('.ideas-panel');
             panel.classList.toggle('open');
             el.classList.toggle('open');
+        }
+
+        function toggleSection(titleEl) {
+            const wrapper = titleEl.nextElementSibling;
+            titleEl.classList.toggle('open');
+            wrapper.classList.toggle('open');
         }
     </script>
 
